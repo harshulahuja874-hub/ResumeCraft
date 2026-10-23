@@ -1,0 +1,518 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ---------- Global ---------- */
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color: #202124;
+  background: #f3f5f9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f3f5f9;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ---------- Website Header ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 19px max(5%, calc((100% - 1100px) / 2));
+  background: #fff;
+  border-bottom: 1px solid #e4e7ee;
+}
+
+.navbar h2 {
+  margin: 0;
+  color: #3157c8;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.navbar span {
+  color: #697386;
+  font-size: 13px;
+}
+
+/* ---------- Form Container ---------- */
+.form-container {
+  width: calc(100% - 32px);
+  max-width: 920px;
+  margin: 34px auto;
+  padding: 36px;
+  background: #fff;
+  border: 1px solid #e5e8ef;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(24, 36, 64, 0.05);
+}
+
+.form-heading {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.form-heading h1 {
+  margin: 0 0 9px;
+  color: #17243a;
+  font-size: clamp(27px, 4vw, 34px);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.form-heading p {
+  margin: 0;
+  color: #737e90;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ---------- Form Sections ---------- */
+form h3 {
+  margin: 30px 0 20px;
+  padding-bottom: 11px;
+  color: #263750;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid #e4e8f0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px 22px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+}
+
+.form-group label {
+  color: #344158;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 12px 13px;
+  color: #202b3d;
+  background: #fff;
+  border: 1px solid #d9dfeb;
+  border-radius: 7px;
+  outline: none;
+  font-size: 13px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input,
+.form-group select {
+  min-height: 44px;
+}
+
+.form-group textarea {
+  min-height: 95px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9ba4b4;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #5275db;
+  box-shadow: 0 0 0 3px rgba(49, 87, 200, 0.1);
+}
+
+/* ---------- Main Button ---------- */
+.download-btn {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  padding: 14px 20px;
+  color: #fff;
+  background: #3157c8;
+  border: 1px solid #3157c8;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.download-btn:hover {
+  background: #2446aa;
+  transform: translateY(-1px);
+}
+
+.download-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+/* ---------- Template Selection ---------- */
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.template-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  padding: 12px;
+  color: #26334a;
+  background: #fff;
+  border: 1px solid #dfe4ed;
+  border-radius: 9px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.template-card:hover {
+  border-color: #8da3e9;
+}
+
+.template-card.selected {
+  padding: 11px;
+  background: #f4f6ff;
+  border: 2px solid #3157c8;
+}
+
+.template-card strong {
+  font-size: 13px;
+}
+
+.template-card small {
+  color: #758096;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.selected-label {
+  color: #3157c8;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Small visual samples for the four designs */
+.template-sample {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+  height: 105px;
+  padding: 12px;
+  background: #f1f3f7;
+  border: 1px solid #e8ebf1;
+  border-radius: 4px;
+}
+
+.template-sample span {
+  display: block;
+  width: 78%;
+  height: 4px;
+  background: #c8cfdb;
+  border-radius: 2px;
+}
+
+.template-sample span:first-child {
+  width: 58%;
+  height: 8px;
+  margin-bottom: 4px;
+  background: #3157c8;
+}
+
+.sample-classic span:first-child {
+  background: #202124;
+}
+
+.sample-minimal span:first-child {
+  background: #777f8c;
+}
+
+.sample-student span:first-child {
+  background: #287a60;
+}
+
+/* ---------- Resume Preview Page ---------- */
+.resume-preview {
+  overflow-x: auto;
+  margin-top: 26px;
+  padding: 24px;
+  background: #e9edf4;
+  border: 1px solid #e0e5ee;
+  border-radius: 8px;
+}
+
+.resume-paper {
+  width: 100%;
+  max-width: 650px;
+  min-height: 842px;
+  margin: 0 auto;
+  padding: 42px 45px;
+  color: #202124;
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1.55;
+  text-align: left;
+  overflow-wrap: anywhere;
+  box-shadow: 0 3px 15px rgba(25, 35, 55, 0.1);
+}
+
+/* Name, email and phone centered */
+.resume-header {
+  margin: 0 0 22px;
+  padding: 0 0 16px;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+.resume-header h1 {
+  margin: 0 0 8px;
+  color: #15191f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.resume-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  color: #40454e;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* All resume sections aligned left */
+.resume-section {
+  margin-top: 18px;
+  text-align: left;
+  break-inside: avoid;
+}
+
+.resume-section h3 {
+  margin: 0 0 9px;
+  padding: 0 0 5px;
+  color: #202124;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #b8bec8;
+}
+
+.resume-section-content,
+.resume-entry,
+.resume-entry p,
+.resume-section p {
+  width: 100%;
+  text-align: left;
+}
+
+.resume-section p {
+  margin: 3px 0;
+  white-space: pre-line;
+}
+
+.resume-entry {
+  margin: 0 0 11px;
+}
+
+.resume-entry strong {
+  font-size: 11px;
+}
+
+/* Modern template */
+.resume-modern .resume-header {
+  padding: 20px;
+  background: #f1f4ff;
+  border-bottom: 3px solid #3157c8;
+}
+
+.resume-modern .resume-header h1 {
+  color: #2446a6;
+}
+
+.resume-modern .resume-section h3 {
+  color: #3157c8;
+  border-bottom-color: #b9c7ef;
+}
+
+/* Classic template */
+.resume-classic .resume-header {
+  border-bottom: 2px solid #202124;
+}
+
+.resume-classic .resume-section h3 {
+  color: #202124;
+  border-bottom-color: #777;
+}
+
+/* Minimal template */
+.resume-minimal .resume-header {
+  border-bottom: 1px solid #d7dbe2;
+}
+
+.resume-minimal .resume-section h3 {
+  color: #515966;
+  border-bottom-color: #e2e5eb;
+}
+
+/* Student template */
+.resume-student .resume-header {
+  border-bottom: 3px solid #287a60;
+}
+
+.resume-student .resume-header h1 {
+  color: #20674f;
+}
+
+.resume-student .resume-section h3 {
+  color: #287a60;
+  border-bottom-color: #c2dfd3;
+}
+
+/* ---------- Resume Actions ---------- */
+.resume-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.resume-actions .download-btn {
+  flex: 1;
+  margin-top: 0;
+}
+
+.back-btn {
+  padding: 13px 18px;
+  color: #344158;
+  background: #fff;
+  border: 1px solid #d9dfeb;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #f5f7fb;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 650px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 17px 20px;
+  }
+
+  .form-container {
+    width: calc(100% - 24px);
+    margin: 18px auto;
+    padding: 24px 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .template-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .resume-preview {
+    padding: 10px;
+  }
+
+  .resume-paper {
+    min-height: 700px;
+    padding: 25px 22px;
+  }
+
+  .resume-actions {
+    flex-direction: column;
+  }
+
+  .form-heading {
+    margin-bottom: 25px;
+  }
+}
+
+/* ---------- Print Fallback ---------- */
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .navbar,
+  .form-heading,
+  form h3,
+  .download-btn,
+  .template-grid,
+  .resume-actions {
+    display: none !important;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
