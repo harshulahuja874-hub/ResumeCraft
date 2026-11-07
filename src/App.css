@@ -1,9 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* ---------- Global ---------- */
+/* GLOBAL */
 :root {
-  font-family: Inter, Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   color: #202124;
   background: #f3f5f9;
   font-synthesis: none;
@@ -20,10 +20,7 @@ body {
   background: #f3f5f9;
 }
 
-button,
-input,
-select,
-textarea {
+button, input, select, textarea {
   font-family: inherit;
 }
 
@@ -31,7 +28,7 @@ textarea {
   min-height: 100vh;
 }
 
-/* ---------- Website Header ---------- */
+/* NAVBAR */
 .navbar {
   display: flex;
   align-items: center;
@@ -55,7 +52,7 @@ textarea {
   font-size: 13px;
 }
 
-/* ---------- Form Container ---------- */
+/* FORM */
 .form-container {
   width: calc(100% - 32px);
   max-width: 920px;
@@ -87,7 +84,6 @@ textarea {
   line-height: 1.7;
 }
 
-/* ---------- Form Sections ---------- */
 form h3 {
   margin: 30px 0 20px;
   padding-bottom: 11px;
@@ -108,7 +104,6 @@ form h3 {
 .form-group {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   gap: 8px;
   min-width: 0;
   margin: 0;
@@ -118,13 +113,11 @@ form h3 {
   color: #344158;
   font-size: 13px;
   font-weight: 600;
-  text-align: left;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  display: block;
   width: 100%;
   min-width: 0;
   margin: 0;
@@ -135,7 +128,7 @@ form h3 {
   border-radius: 7px;
   outline: none;
   font-size: 13px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: 0.2s;
 }
 
 .form-group input,
@@ -149,11 +142,6 @@ form h3 {
   line-height: 1.6;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #9ba4b4;
-}
-
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -161,7 +149,7 @@ form h3 {
   box-shadow: 0 0 0 3px rgba(49, 87, 200, 0.1);
 }
 
-/* ---------- Main Button ---------- */
+/* BUTTONS */
 .download-btn {
   display: block;
   width: 100%;
@@ -174,7 +162,7 @@ form h3 {
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  transition: 0.2s;
 }
 
 .download-btn:hover {
@@ -187,7 +175,7 @@ form h3 {
   cursor: wait;
 }
 
-/* ---------- Template Selection ---------- */
+/* TEMPLATE CARDS */
 .template-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -208,17 +196,18 @@ form h3 {
   border-radius: 9px;
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition: 0.2s;
 }
 
 .template-card:hover {
   border-color: #8da3e9;
+  transform: translateY(-2px);
 }
 
 .template-card.selected {
-  padding: 11px;
   background: #f4f6ff;
   border: 2px solid #3157c8;
+  padding: 11px;
 }
 
 .template-card strong {
@@ -237,7 +226,6 @@ form h3 {
   font-weight: 700;
 }
 
-/* Small visual samples for the four designs */
 .template-sample {
   display: flex;
   flex-direction: column;
@@ -265,19 +253,12 @@ form h3 {
   background: #3157c8;
 }
 
-.sample-classic span:first-child {
-  background: #202124;
-}
+.sample-ats span:first-child { background: #263750; }
+.sample-split span:first-child { background: #176b70; }
+.sample-executive span:first-child { background: #a17a42; }
+.sample-tech span:first-child { background: #2457c5; }
 
-.sample-minimal span:first-child {
-  background: #777f8c;
-}
-
-.sample-student span:first-child {
-  background: #287a60;
-}
-
-/* ---------- Resume Preview Page ---------- */
+/* RESUME COMMON */
 .resume-preview {
   overflow-x: auto;
   margin-top: 26px;
@@ -297,69 +278,45 @@ form h3 {
   background: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
-  line-height: 1.55;
+  line-height: 1.6;
   text-align: left;
   overflow-wrap: anywhere;
   box-shadow: 0 3px 15px rgba(25, 35, 55, 0.1);
 }
 
-/* Name, email and phone centered */
-.resume-header {
-  margin: 0 0 22px;
-  padding: 0 0 16px;
-  text-align: center;
-  border-bottom: 1px solid #333;
-}
-
-.resume-header h1 {
-  margin: 0 0 8px;
-  color: #15191f;
-  font-family: Arial, Helvetica, sans-serif;
+.resume-paper h1 {
   font-size: 25px;
-  font-weight: 700;
+  margin: 0 0 9px;
   line-height: 1.3;
-  text-align: center;
-  letter-spacing: 0.2px;
 }
 
 .resume-contact {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 3px;
   width: 100%;
-  color: #40454e;
   font-size: 10px;
   line-height: 1.5;
   text-align: center;
+  overflow-wrap: anywhere;
 }
 
-/* All resume sections aligned left */
 .resume-section {
-  margin-top: 18px;
+  margin-top: 19px;
   text-align: left;
   break-inside: avoid;
 }
 
 .resume-section h3 {
   margin: 0 0 9px;
-  padding: 0 0 5px;
-  color: #202124;
+  padding: 0 0 6px;
   font-size: 12px;
   font-weight: 700;
   text-align: left;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
   border-bottom: 1px solid #b8bec8;
-}
-
-.resume-section-content,
-.resume-entry,
-.resume-entry p,
-.resume-section p {
-  width: 100%;
-  text-align: left;
 }
 
 .resume-section p {
@@ -368,64 +325,162 @@ form h3 {
 }
 
 .resume-entry {
-  margin: 0 0 11px;
+  margin-bottom: 11px;
 }
 
 .resume-entry strong {
   font-size: 11px;
 }
 
-/* Modern template */
-.resume-modern .resume-header {
-  padding: 20px;
-  background: #f1f4ff;
-  border-bottom: 3px solid #3157c8;
-}
-
-.resume-modern .resume-header h1 {
-  color: #2446a6;
-}
-
-.resume-modern .resume-section h3 {
-  color: #3157c8;
-  border-bottom-color: #b9c7ef;
-}
-
-/* Classic template */
-.resume-classic .resume-header {
-  border-bottom: 2px solid #202124;
-}
-
-.resume-classic .resume-section h3 {
+/* 1. ATS PROFESSIONAL */
+.resume-ats {
+  font-family: Arial, sans-serif;
   color: #202124;
-  border-bottom-color: #777;
 }
 
-/* Minimal template */
-.resume-minimal .resume-header {
-  border-bottom: 1px solid #d7dbe2;
+.resume-ats .ats-header {
+  margin-bottom: 23px;
+  padding-bottom: 15px;
+  text-align: center;
+  border-bottom: 2px solid #263750;
 }
 
-.resume-minimal .resume-section h3 {
-  color: #515966;
-  border-bottom-color: #e2e5eb;
+.resume-ats .ats-header h1 {
+  color: #263750;
+  font-size: 27px;
+  font-weight: 700;
 }
 
-/* Student template */
-.resume-student .resume-header {
-  border-bottom: 3px solid #287a60;
+.resume-ats .resume-section h3 {
+  color: #263750;
+  border-bottom-color: #9ba8b9;
 }
 
-.resume-student .resume-header h1 {
-  color: #20674f;
+/* 2. MODERN SPLIT */
+.resume-split {
+  display: grid;
+  grid-template-columns: 34% 66%;
+  padding: 0;
+  min-height: 842px;
 }
 
-.resume-student .resume-section h3 {
-  color: #287a60;
-  border-bottom-color: #c2dfd3;
+.split-sidebar {
+  padding: 35px 20px;
+  color: #fff;
+  background: #176b70;
 }
 
-/* ---------- Resume Actions ---------- */
+.split-sidebar h1 {
+  font-size: 23px;
+  color: #fff;
+  overflow-wrap: anywhere;
+}
+
+.split-sidebar .resume-contact {
+  align-items: flex-start;
+  margin: 18px 0 28px;
+  color: #e0f1f0;
+  text-align: left;
+}
+
+.split-sidebar .resume-section h3 {
+  color: #fff;
+  border-bottom-color: rgba(255,255,255,0.4);
+}
+
+.split-sidebar .resume-section p,
+.split-sidebar .resume-entry {
+  color: #eaf4f3;
+}
+
+.split-main {
+  padding: 35px 25px;
+  background: #fff;
+}
+
+.split-main .resume-section:first-child {
+  margin-top: 0;
+}
+
+.split-main .resume-section h3 {
+  color: #176b70;
+  border-bottom-color: #b9d7d5;
+}
+
+/* 3. EXECUTIVE */
+.resume-executive {
+  padding: 48px 50px;
+  font-family: Georgia, serif;
+  color: #302d29;
+}
+
+.executive-header {
+  padding-bottom: 20px;
+  text-align: center;
+  border-bottom: 1px solid #b79a6b;
+}
+
+.executive-header h1 {
+  color: #73552f;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.resume-executive .resume-contact {
+  color: #6f685e;
+}
+
+.executive-body {
+  padding-top: 8px;
+}
+
+.resume-executive .resume-section h3 {
+  color: #8a693b;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #d8c8ad;
+}
+
+/* 4. TECH FRESHER */
+.resume-tech {
+  border-top: 9px solid #2457c5;
+  font-family: Arial, sans-serif;
+}
+
+.tech-header {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #d5ddeb;
+}
+
+.tech-header h1 {
+  color: #193d83;
+  font-size: 28px;
+}
+
+.resume-tech .resume-contact {
+  align-items: flex-start;
+  color: #4e5c73;
+  text-align: left;
+}
+
+.resume-tech .resume-section h3 {
+  color: #2457c5;
+  border-bottom: 1px solid #c7d5f1;
+}
+
+.resume-tech .resume-section:nth-child(1) {
+  margin-top: 12px;
+}
+
+.resume-tech .resume-section:nth-child(1) p {
+  color: #193d83;
+  font-weight: 600;
+}
+
+/* ACTIONS */
 .resume-actions {
   display: flex;
   gap: 12px;
@@ -452,7 +507,7 @@ form h3 {
   background: #f5f7fb;
 }
 
-/* ---------- Responsive ---------- */
+/* RESPONSIVE */
 @media (max-width: 650px) {
   .navbar {
     flex-wrap: wrap;
@@ -483,6 +538,19 @@ form h3 {
     padding: 25px 22px;
   }
 
+  .resume-split {
+    grid-template-columns: 34% 66%;
+    padding: 0;
+  }
+
+  .split-sidebar {
+    padding: 22px 12px;
+  }
+
+  .split-main {
+    padding: 22px 14px;
+  }
+
   .resume-actions {
     flex-direction: column;
   }
@@ -492,7 +560,7 @@ form h3 {
   }
 }
 
-/* ---------- Print Fallback ---------- */
+/* PRINT */
 @media print {
   body {
     background: #fff;
@@ -515,4 +583,50 @@ form h3 {
     border: none;
     box-shadow: none;
   }
+
+  .resume-preview {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    border: none;
+  }
+
+  .resume-paper {
+    box-shadow: none;
+  }
+}
+.my-resumes {
+  margin-top: 40px;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.my-resumes h2 {
+  color: #1e293b;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.resume-item {
+  padding: 20px;
+  margin-top: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.resume-item h3 {
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.resume-item p {
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.resume-item .download-btn {
+  margin-top: 12px;
 }
