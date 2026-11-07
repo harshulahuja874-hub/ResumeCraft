@@ -1,11 +1,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* GLOBAL */
+/* ================= GLOBAL ================= */
+
 :root {
   font-family: 'Inter', Arial, sans-serif;
   color: #202124;
-  background: #f3f5f9;
+  background: #f4f6fb;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -17,34 +18,51 @@
 body {
   margin: 0;
   min-width: 320px;
-  background: #f3f5f9;
+  background: #f4f6fb;
+  color: #17243a;
 }
 
 button, input, select, textarea {
   font-family: inherit;
 }
 
-#root {
+button {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+#root, .app {
   min-height: 100vh;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
+
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 19px max(5%, calc((100% - 1100px) / 2));
+  min-height: 70px;
+  padding: 17px max(5%, calc((100% - 1100px) / 2));
   background: #fff;
   border-bottom: 1px solid #e4e7ee;
+  box-shadow: 0 3px 15px rgba(20, 35, 70, 0.04);
 }
 
 .navbar h2 {
   margin: 0;
   color: #3157c8;
-  font-size: 23px;
+  font-size: 25px;
   font-weight: 800;
-  letter-spacing: -0.8px;
+  letter-spacing: -1px;
+}
+
+.navbar h2::before {
+  content: "✦ ";
+  color: #5275db;
 }
 
 .navbar span {
@@ -52,29 +70,32 @@ button, input, select, textarea {
   font-size: 13px;
 }
 
-/* FORM */
+/* ================= MAIN FORM ================= */
+
 .form-container {
   width: calc(100% - 32px);
-  max-width: 920px;
+  max-width: 1000px;
   margin: 34px auto;
-  padding: 36px;
+  padding: 42px;
   background: #fff;
   border: 1px solid #e5e8ef;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(24, 36, 64, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(24, 36, 64, 0.07);
 }
 
 .form-heading {
   margin-bottom: 30px;
+  padding-bottom: 22px;
   text-align: left;
+  border-bottom: 1px solid #edf0f6;
 }
 
 .form-heading h1 {
   margin: 0 0 9px;
   color: #17243a;
-  font-size: clamp(27px, 4vw, 34px);
+  font-size: clamp(27px, 4vw, 35px);
   font-weight: 800;
-  letter-spacing: -1px;
+  letter-spacing: -1.3px;
 }
 
 .form-heading p {
@@ -84,14 +105,20 @@ button, input, select, textarea {
   line-height: 1.7;
 }
 
-form h3 {
-  margin: 30px 0 20px;
-  padding-bottom: 11px;
-  color: #263750;
+/* ================= FORM FIELDS ================= */
+
+form > h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 35px 0 20px;
+  padding: 12px 15px;
+  color: #294da9;
+  background: #f3f6ff;
+  border-left: 4px solid #4167d5;
+  border-radius: 6px;
   font-size: 15px;
   font-weight: 700;
-  text-align: left;
-  border-bottom: 1px solid #e4e8f0;
 }
 
 .form-grid {
@@ -121,14 +148,14 @@ form h3 {
   width: 100%;
   min-width: 0;
   margin: 0;
-  padding: 12px 13px;
+  padding: 13px 14px;
   color: #202b3d;
-  background: #fff;
-  border: 1px solid #d9dfeb;
-  border-radius: 7px;
+  background: #fcfdff;
+  border: 1px solid #dce2ee;
+  border-radius: 9px;
   outline: none;
   font-size: 13px;
-  transition: 0.2s;
+  transition: all 0.2s ease;
 }
 
 .form-group input,
@@ -142,14 +169,22 @@ form h3 {
   line-height: 1.6;
 }
 
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: #aab9e8;
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: #5275db;
-  box-shadow: 0 0 0 3px rgba(49, 87, 200, 0.1);
+  background: #fff;
+  border-color: #4167d5;
+  box-shadow: 0 0 0 4px rgba(65, 103, 213, 0.1);
 }
 
-/* BUTTONS */
+/* ================= BUTTONS ================= */
+
 .download-btn {
   display: block;
   width: 100%;
@@ -158,16 +193,16 @@ form h3 {
   color: #fff;
   background: #3157c8;
   border: 1px solid #3157c8;
-  border-radius: 8px;
+  border-radius: 9px;
+  box-shadow: 0 4px 10px rgba(49, 87, 200, 0.12);
   font-size: 14px;
   font-weight: 700;
-  cursor: pointer;
-  transition: 0.2s;
 }
 
 .download-btn:hover {
   background: #2446aa;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(49, 87, 200, 0.2);
 }
 
 .download-btn:disabled {
@@ -175,12 +210,166 @@ form h3 {
   cursor: wait;
 }
 
-/* TEMPLATE CARDS */
+.back-btn {
+  padding: 13px 18px;
+  color: #344158;
+  background: #fff;
+  border: 1px solid #d9dfeb;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.back-btn:hover {
+  color: #3157c8;
+  background: #f5f7fb;
+  border-color: #aab9e8;
+}
+
+/* ================= AI CONTENT GENERATOR ================= */
+
+.ai-generator {
+  margin-top: 32px;
+  padding: 28px;
+  background: linear-gradient(135deg, #f5f7ff, #eef2ff);
+  border: 1px solid #dce4ff;
+  border-radius: 15px;
+  text-align: left;
+}
+
+.ai-generator h2 {
+  margin: 0 0 10px;
+  color: #233b78;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.ai-generator > p {
+  margin: 0 0 20px;
+  color: #68748a;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.ai-generator textarea,
+.ai-result textarea {
+  display: block;
+  width: 100%;
+  min-height: 110px;
+  padding: 14px;
+  color: #26334a;
+  background: #fff;
+  border: 1px solid #d7deed;
+  border-radius: 9px;
+  outline: none;
+  font-size: 13px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.ai-generator textarea:focus,
+.ai-result textarea:focus {
+  border-color: #5275db;
+  box-shadow: 0 0 0 3px rgba(49, 87, 200, 0.1);
+}
+
+.ai-generator > button,
+.ai-result button {
+  margin-top: 14px;
+  padding: 12px 20px;
+  color: #fff;
+  background: #3157c8;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ai-generator > button:hover,
+.ai-result button:hover {
+  background: #2446aa;
+  transform: translateY(-1px);
+}
+
+.ai-generator > button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* ================= AI RESULT ================= */
+
+.ai-result {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f5f7ff;
+  border: 1px solid #dce4ff;
+  border-radius: 10px;
+}
+
+.ai-result h3 {
+  margin: 0 0 14px;
+  color: #263f85;
+  font-size: 15px;
+}
+
+.ai-result button {
+  color: #3157c8;
+  background: #edf1ff;
+  border: 1px solid #d5deff;
+}
+
+.ai-result button:hover {
+  background: #dfe7ff;
+}
+
+/* ================= AI RECOMMENDATION & ATS ================= */
+
+.ai-template-recommendation {
+  margin: 24px 0;
+  padding: 26px;
+  background: #fff;
+  border: 1px solid #e1e7f2;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(30, 50, 90, 0.04);
+  transition: 0.2s ease;
+}
+
+.ai-template-recommendation:hover {
+  border-color: #c5d2f3;
+  box-shadow: 0 8px 22px rgba(30, 50, 90, 0.07);
+}
+
+.ai-template-recommendation h2 {
+  margin: 0 0 10px;
+  color: #263f85;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.ai-template-recommendation p {
+  color: #68748a;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.ai-template-recommendation .download-btn {
+  width: auto;
+  min-width: 210px;
+  max-width: 300px;
+  margin-top: 17px;
+}
+
+.ai-template-recommendation .ai-result {
+  margin-top: 20px;
+}
+
+/* ================= TEMPLATE GRID ================= */
+
 .template-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  margin: 24px 0;
+  gap: 18px;
+  margin: 30px 0;
 }
 
 .template-card {
@@ -189,25 +378,27 @@ form h3 {
   align-items: flex-start;
   gap: 8px;
   min-width: 0;
-  padding: 12px;
+  padding: 15px;
   color: #26334a;
   background: #fff;
   border: 1px solid #dfe4ed;
-  border-radius: 9px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(24, 36, 64, 0.03);
   text-align: left;
-  cursor: pointer;
-  transition: 0.2s;
+  transition: all 0.25s ease;
 }
 
 .template-card:hover {
   border-color: #8da3e9;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(30, 50, 90, 0.08);
 }
 
 .template-card.selected {
-  background: #f4f6ff;
+  padding: 14px;
+  background: #f2f5ff;
   border: 2px solid #3157c8;
-  padding: 11px;
+  box-shadow: 0 5px 18px rgba(49, 87, 200, 0.1);
 }
 
 .template-card strong {
@@ -221,7 +412,10 @@ form h3 {
 }
 
 .selected-label {
+  padding: 5px 9px;
   color: #3157c8;
+  background: #e5ebff;
+  border-radius: 20px;
   font-size: 11px;
   font-weight: 700;
 }
@@ -231,11 +425,11 @@ form h3 {
   flex-direction: column;
   gap: 7px;
   width: 100%;
-  height: 105px;
-  padding: 12px;
-  background: #f1f3f7;
+  height: 125px;
+  padding: 15px;
+  background: #f6f8fc;
   border: 1px solid #e8ebf1;
-  border-radius: 4px;
+  border-radius: 7px;
 }
 
 .template-sample span {
@@ -258,14 +452,15 @@ form h3 {
 .sample-executive span:first-child { background: #a17a42; }
 .sample-tech span:first-child { background: #2457c5; }
 
-/* RESUME COMMON */
+/* ================= RESUME PREVIEW ================= */
+
 .resume-preview {
   overflow-x: auto;
   margin-top: 26px;
-  padding: 24px;
-  background: #e9edf4;
-  border: 1px solid #e0e5ee;
-  border-radius: 8px;
+  padding: 30px;
+  background: #edf0f6;
+  border: 1px solid #dce2ec;
+  border-radius: 13px;
 }
 
 .resume-paper {
@@ -276,17 +471,18 @@ form h3 {
   padding: 42px 45px;
   color: #202124;
   background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 8px 25px rgba(25, 35, 55, 0.12);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
   line-height: 1.6;
   text-align: left;
   overflow-wrap: anywhere;
-  box-shadow: 0 3px 15px rgba(25, 35, 55, 0.1);
 }
 
 .resume-paper h1 {
-  font-size: 25px;
   margin: 0 0 9px;
+  font-size: 25px;
   line-height: 1.3;
 }
 
@@ -301,6 +497,22 @@ form h3 {
   text-align: center;
   overflow-wrap: anywhere;
 }
+
+.resume-contact a {
+  color: #3157c8;
+  text-decoration: none;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+.resume-contact a:hover {
+  text-decoration: underline;
+}
+
+.resume-contact a:visited {
+  color: #3157c8;
+}
+
 
 .resume-section {
   margin-top: 19px;
@@ -332,10 +544,11 @@ form h3 {
   font-size: 11px;
 }
 
-/* 1. ATS PROFESSIONAL */
+/* ================= ATS PROFESSIONAL TEMPLATE ================= */
+
 .resume-ats {
-  font-family: Arial, sans-serif;
   color: #202124;
+  font-family: Arial, sans-serif;
 }
 
 .resume-ats .ats-header {
@@ -356,12 +569,13 @@ form h3 {
   border-bottom-color: #9ba8b9;
 }
 
-/* 2. MODERN SPLIT */
+/* ================= MODERN SPLIT TEMPLATE ================= */
+
 .resume-split {
   display: grid;
   grid-template-columns: 34% 66%;
-  padding: 0;
   min-height: 842px;
+  padding: 0;
 }
 
 .split-sidebar {
@@ -371,8 +585,8 @@ form h3 {
 }
 
 .split-sidebar h1 {
-  font-size: 23px;
   color: #fff;
+  font-size: 23px;
   overflow-wrap: anywhere;
 }
 
@@ -385,7 +599,7 @@ form h3 {
 
 .split-sidebar .resume-section h3 {
   color: #fff;
-  border-bottom-color: rgba(255,255,255,0.4);
+  border-bottom-color: rgba(255, 255, 255, 0.4);
 }
 
 .split-sidebar .resume-section p,
@@ -407,11 +621,12 @@ form h3 {
   border-bottom-color: #b9d7d5;
 }
 
-/* 3. EXECUTIVE */
+/* ================= EXECUTIVE TEMPLATE ================= */
+
 .resume-executive {
   padding: 48px 50px;
-  font-family: Georgia, serif;
   color: #302d29;
+  font-family: Georgia, serif;
 }
 
 .executive-header {
@@ -438,33 +653,40 @@ form h3 {
 
 .resume-executive .resume-section h3 {
   color: #8a693b;
+  border-bottom: 1px solid #d8c8ad;
   font-family: Georgia, serif;
   font-size: 13px;
   letter-spacing: 1px;
-  border-bottom: 1px solid #d8c8ad;
 }
 
-/* 4. TECH FRESHER */
+/* ================= TECH FRESHER TEMPLATE ================= */
+
 .resume-tech {
   border-top: 9px solid #2457c5;
   font-family: Arial, sans-serif;
 }
 
+
 .tech-header {
   padding-bottom: 18px;
   border-bottom: 1px solid #d5ddeb;
+  text-align: center;
 }
 
 .tech-header h1 {
   color: #193d83;
   font-size: 28px;
+  text-align: center;
+  width: 100%;
 }
 
 .resume-tech .resume-contact {
-  align-items: flex-start;
+  align-items: center;
   color: #4e5c73;
-  text-align: left;
+  text-align: center;
+  width: 100%;
 }
+
 
 .resume-tech .resume-section h3 {
   color: #2457c5;
@@ -480,7 +702,8 @@ form h3 {
   font-weight: 600;
 }
 
-/* ACTIONS */
+/* ================= RESUME ACTIONS ================= */
+
 .resume-actions {
   display: flex;
   gap: 12px;
@@ -492,22 +715,70 @@ form h3 {
   margin-top: 0;
 }
 
-.back-btn {
-  padding: 13px 18px;
-  color: #344158;
+/* ================= MY RESUMES ================= */
+
+.my-resumes {
+  margin-top: 35px;
+  padding: 28px;
+  background: #f8faff;
+  border: 1px solid #e0e6f2;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(30, 50, 90, 0.04);
+}
+
+.my-resumes h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  color: #263f85;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.my-resumes button {
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+.my-resumes button:hover {
+  transform: translateY(-1px);
+}
+
+.resume-item {
+  margin-top: 15px;
+  padding: 20px;
   background: #fff;
-  border: 1px solid #d9dfeb;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  transition: 0.2s;
 }
 
-.back-btn:hover {
-  background: #f5f7fb;
+.resume-item:hover {
+  border-color: #b7c6ef;
+  box-shadow: 0 5px 15px rgba(24, 36, 64, 0.05);
 }
 
-/* RESPONSIVE */
+.resume-item h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #1e293b;
+  font-size: 17px;
+}
+
+.resume-item p {
+  margin-bottom: 10px;
+  color: #64748b;
+}
+
+.resume-item .download-btn {
+  display: inline-block;
+  width: auto;
+  margin: 8px 8px 0 0;
+  padding: 10px 16px;
+  font-size: 12px;
+}
+
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 650px) {
   .navbar {
     flex-wrap: wrap;
@@ -518,6 +789,15 @@ form h3 {
     width: calc(100% - 24px);
     margin: 18px auto;
     padding: 24px 18px;
+    border-radius: 14px;
+  }
+
+  .form-heading {
+    margin-bottom: 25px;
+  }
+
+  .form-heading h1 {
+    font-size: 27px;
   }
 
   .form-grid {
@@ -525,8 +805,26 @@ form h3 {
     gap: 18px;
   }
 
+  .ai-generator,
+  .ai-template-recommendation {
+    padding: 19px;
+  }
+
+  .ai-generator h2 {
+    font-size: 18px;
+  }
+
+  .ai-template-recommendation h2 {
+    font-size: 18px;
+  }
+
+  .ai-template-recommendation .download-btn {
+    width: 100%;
+  }
+
   .template-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .resume-preview {
@@ -555,12 +853,18 @@ form h3 {
     flex-direction: column;
   }
 
-  .form-heading {
-    margin-bottom: 25px;
+  .my-resumes {
+    padding: 18px;
+  }
+
+  .resume-item .download-btn {
+    width: 100%;
+    margin-right: 0;
   }
 }
 
-/* PRINT */
+/* ================= PRINT / PDF ================= */
+
 @media print {
   body {
     background: #fff;
@@ -595,38 +899,86 @@ form h3 {
     box-shadow: none;
   }
 }
-.my-resumes {
-  margin-top: 40px;
-  padding: 25px;
+
+
+.resume-contact .profile-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #3157c8;
+  color: white !important;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 600;
+  margin: 3px;
+  white-space: nowrap;
+}
+
+.resume-contact .profile-btn:hover {
+  background: #2445a8;
+  
+}
+
+.resume-contact {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px;
+}
+
+.contact-email,
+.contact-phone {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.profile-links {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* ATS Template */
+.resume-ats .profile-btn {
+  background: #243b64;
+}
+
+/* Modern Split Template */
+.resume-split .profile-btn {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  color: #263b5b !important;
+  border: 1px solid #ffffff;
 }
 
-.my-resumes h2 {
-  color: #1e293b;
-  font-size: 22px;
-  margin-bottom: 20px;
+/* Executive Template */
+.resume-executive .profile-btn {
+  background: #9b8055;
 }
 
-.resume-item {
-  padding: 20px;
-  margin-top: 15px;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  background: #f8fafc;
+/* Tech Fresher Template */
+.resume-tech .profile-btn {
+  background: #3157c8;
+  color: white !important;
+}
+/* Common Button Styling */
+.resume-contact .profile-btn {
+  display: inline-block !important;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
 }
 
-.resume-item h3 {
-  color: #1e293b;
-  margin-bottom: 8px;
+.resume-contact .profile-btn:hover {
+  opacity: 0.8;
 }
 
-.resume-item p {
-  color: #64748b;
-  margin-bottom: 10px;
-}
 
-.resume-item .download-btn {
-  margin-top: 12px;
-}
+

@@ -36,6 +36,8 @@ function App() {
     gender: "",
     phone: "",
     email: "",
+    linkedin: "",
+    github: "",
     class10: "",
     board10: "",
     year10: "",
@@ -394,12 +396,47 @@ const handleGenerateAI = async () => {
   const fullName =
     `${resume.firstName} ${resume.lastName}`.trim() || "Your Name";
 
-  const contact = (
-    <div className="resume-contact">
-      {showValue(resume.email) && <span>{resume.email}</span>}
-      {showValue(resume.phone) && <span>{resume.phone}</span>}
+  
+
+
+const contact = (
+  <div className="resume-contact">
+    {showValue(resume.email) && (
+      <div className="contact-email">{resume.email}</div>
+    )}
+
+    {showValue(resume.phone) && (
+      <div className="contact-phone">{resume.phone}</div>
+    )}
+
+    <div className="profile-links">
+      {showValue(resume.linkedin) && (
+        <a
+          className="profile-btn"
+          href={resume.linkedin.startsWith("http") ? resume.linkedin : `https://${resume.linkedin}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+      )}
+
+      {showValue(resume.github) && (
+        <a
+          className="profile-btn"
+          href={resume.github.startsWith("http") ? resume.github : `https://${resume.github}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      )}
     </div>
-  );
+  </div>
+);
+
+
+
 
   const education = (
     <ResumeSection title="Education">
@@ -579,6 +616,28 @@ const handleGenerateAI = async () => {
                     onChange={handleChange} placeholder="Enter email address" />
                 </div>
               </div>
+              
+<div className="form-group">
+  <label>LinkedIn Profile URL</label>
+  <input
+    name="linkedin"
+    type="url"
+    value={resume.linkedin}
+    onChange={handleChange}
+    placeholder="https://linkedin.com/in/your-profile"
+  />
+</div>
+
+<div className="form-group">
+  <label>GitHub Profile URL</label>
+  <input
+    name="github"
+    type="url"
+    value={resume.github}
+    onChange={handleChange}
+    placeholder="https://github.com/your-username"
+  />
+</div>
 
               <h3>10th Class Details</h3>
               <div className="form-grid">
